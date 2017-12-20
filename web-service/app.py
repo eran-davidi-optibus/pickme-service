@@ -76,7 +76,8 @@ class AddRider(Resource):
         data['id'] = len(riders) + 1
         riders.append(data)
         return {
-            'id': data['id']
+            'id': data['id'],
+            'text': 'Come back on 19:00 to check your route'
         }
 
 
