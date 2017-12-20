@@ -6,6 +6,8 @@ app = Flask(__name__)
 api = Api(app)
 
 riders = None
+buses = None
+stops = None
 
 
 def register_api(url):
@@ -17,8 +19,10 @@ def register_api(url):
 
 
 def init():
-    global riders
-    riders = from_json_file('./riders.json')
+    global riders, buses, stops
+    riders = from_json_file('./data/riders.json')
+    buses = from_json_file('./data/buses.json')
+    stops = from_json_file('./data/stops.json')
 
 
 @register_api('/riders/status')
@@ -27,7 +31,9 @@ class RidersStatus(Resource):
 
         return {
             'status': 'pending',
-            'riders': riders
+            'riders': riders,
+            'buses': buses,
+            'stops': stops
         }
 
 
