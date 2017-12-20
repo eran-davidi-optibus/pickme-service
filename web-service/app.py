@@ -72,10 +72,6 @@ class RidersStatus(Resource):
 class AddRider(Resource):
     def post(self):
         data = _get_data()
-        if data['name'] != 'Moshe':
-            abort(403)
-            return
-
         global data_updated
         data_updated = time.time()
         data['id'] = len(riders) + 1
@@ -153,6 +149,13 @@ class CloseRoute(Resource):
         #     'routes': routes
         # }
         return Response(json.dumps(data), status=200, mimetype='application/json')
+
+
+@register_api('/reset')
+class Reset(Resource):
+    def post(self):
+        init()
+        return 'ok'
 
 
 if __name__ == '__main__':
