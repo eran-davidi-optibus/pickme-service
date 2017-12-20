@@ -39,6 +39,7 @@
     "name": "Rider 6",
     "start_time": 500,
     "origin_stop_id": "6",
-    "destination_stop_id": "3"
+    "destination_stop_id": "3",
+    "text": "Your ride is confirmed, You will be picked up from Shifer St 6 Holon at 08:12"
   }
 ]
