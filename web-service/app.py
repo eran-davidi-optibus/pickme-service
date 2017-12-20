@@ -1,5 +1,5 @@
 from files import from_json_file
-from flask import Flask, request
+from flask import Flask
 from flask.ext.restful import abort, Api, Resource
 
 app = Flask(__name__)
