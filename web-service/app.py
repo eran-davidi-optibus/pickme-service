@@ -73,7 +73,7 @@ class AddRider(Resource):
         riders.append(data)
         return {
             'id': data['id'],
-            'text': 'Come back on 19:00 to check your route'
+            'text': 'Come back on 7:00 pm to check your route'
         }
 
 @register_api('/close_route')
