@@ -65,16 +65,33 @@ class RidersStatus(Resource):
 
 @register_api('/riders/add')
 class AddRider(Resource):
+    def find_rider(self, name):
+        global riders
+        for rider in riders:
+            if rider['name'] == name:
+                return rider
+        return None
+
     def post(self):
         data = _get_data()
         global data_updated
-        data_updated = time.time()
-        data['id'] = len(riders) + 1
-        riders.append(data)
-        return {
-            'id': data['id'],
-            'text': 'Come back on 7:00 pm to check your route'
-        }
+        rider = self.find_rider(data['name'])
+        if rider is None:
+            data_updated = time.time()
+            data['id'] = len(riders) + 1
+            riders.append(data)
+            data = {
+                'id': data['id'],
+                'text': 'Come back on 7:00 pm to check your route'
+            }
+            return Response(json.dumps(data), status=200, mimetype='application/json')
+        else:
+            data = {
+                'id': rider['id'],
+                'text': 'Come back on 7:00 pm to check your route'
+            }
+            return Response(json.dumps(data), status=200, mimetype='application/json')
+
 
 @register_api('/close_route')
 class CloseRoute(Resource):
