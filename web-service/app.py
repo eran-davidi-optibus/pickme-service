@@ -1,5 +1,9 @@
+import gzip
+import json
+from StringIO import StringIO
+
 from files import from_json_file
-from flask import Flask
+from flask import Flask, request
 from flask_restful import abort, Api, Resource
 
 app = Flask(__name__)
@@ -8,6 +12,15 @@ api = Api(app)
 riders = None
 buses = None
 stops = None
+
+
+def _get_data():
+    if request.content_encoding == 'gzip':
+        fp = StringIO(request.data)
+        with gzip.GzipFile(fileobj=fp) as gzipfile:
+            jsonstr = gzipfile.read()
+        return jsonstr
+    return json.loads(request.data)
 
 
 def register_api(url):
@@ -37,6 +50,21 @@ class RidersStatus(Resource):
         }
 
 
+@register_api('/riders/add')
+class AddRider(Resource):
+    def post(self):
+        data = _get_data()
+        if data['name'] != 'Moshe':
+            abort(403)
+            return
+
+        data['id'] = len(riders) + 1
+        riders.append(data)
+        return {
+            'id': data['id']
+        }
+
+
 if __name__ == '__main__':
     init()
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

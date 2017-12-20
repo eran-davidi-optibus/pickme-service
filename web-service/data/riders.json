@@ -2,14 +2,14 @@
   {
     "id": 1,
     "name": "Rider 1",
-    "start_time": "08:32",
+    "start_time": 600,
     "origin_stop_id": 1,
     "destination_stop_id": 2
   },
   {
     "id": 2,
     "name": "Rider 2",
-    "end_time": "10:45",
+    "end_time": 500,
     "origin_stop_id": 2,
     "destination_stop_id": 1
   }
