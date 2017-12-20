@@ -1,0 +1,14 @@
+{
+  "riders": [
+    {
+      "id": "1",
+      "name": "Rider 1",
+      "start_time": "08:32"
+    },
+    {
+      "id": "2",
+      "name": "Rider 2",
+      "end_time": "10:45"
+    }
+  ]
+}
