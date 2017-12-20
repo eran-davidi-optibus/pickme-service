@@ -1,0 +1,5 @@
+from algo.heuristics.heuristic import Heuristic
+from algo.heuristics.L2DistanceHeuristic import L2DistanceHeuristic
+from algo.heuristics.MSTHeuristic import MSTHeuristic
+from algo.heuristics.NullHeuristic import NullHeuristic
+from algo.heuristics.TSPCustomHeuristic import TSPCustomHeuristic
