@@ -2,16 +2,25 @@ import gzip
 import json
 from StringIO import StringIO
 
+import time
+
+from enum import Enum
+
 from files import from_json_file
-from flask import Flask, request
+from flask import Flask, request, Response
 from flask_restful import abort, Api, Resource
+from flask_cors import CORS
+
 
 app = Flask(__name__)
 api = Api(app)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 riders = None
 buses = None
 stops = None
+data_updated = None
+RideStatus = Enum('RideStatus', 'pending closed')
 
 
 def _get_data():
@@ -41,13 +50,17 @@ def init():
 @register_api('/riders/status')
 class RidersStatus(Resource):
     def get(self):
-
-        return {
-            'status': 'pending',
+        global data_updated
+        if data_updated is None:
+            data_updated = time.time()
+        data = {
+            'data_updated': data_updated,
+            'status': RideStatus.pending.name,
             'riders': riders,
             'buses': buses,
             'stops': stops
         }
+        return Response(json.dumps(data), status=200, mimetype='application/json')
 
 
 @register_api('/riders/add')
@@ -58,6 +71,8 @@ class AddRider(Resource):
             abort(403)
             return
 
+        global data_updated
+        data_updated = time.time()
         data['id'] = len(riders) + 1
         riders.append(data)
         return {
