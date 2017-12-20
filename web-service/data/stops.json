@@ -1,20 +1,56 @@
 [
   {
     "id": 1,
-    "name": "Stop 1",
-    "long": 34.2,
-    "lat": 31.3
+    "name": "Yehuda ha-Levi 7 Petah Tikva",
+    "long": 0,
+    "lat": 0
   },
   {
     "id": 2,
-    "name": "Stop 2",
-    "long": 40.43,
-    "lat": 41.35
+    "name": "Yosef Batsri St 5 Petah Tikva",
+    "long": 0,
+    "lat": 0
   },
   {
     "id": 3,
-    "name": "Stop 3",
-    "long": 43.43,
-    "lat": 39.35
+    "name": "Ze'ev Brande 13, Petah Tikva",
+    "long": 0,
+    "lat": 0
+  },
+  {
+    "id": 4,
+    "name": "sokulove 86 holon",
+    "long": 0,
+    "lat": 0
+  },
+  {
+    "id": 5,
+    "name": "Mohiliver St 35 Holon",
+    "long": 0,
+    "lat": 0
+  },
+  {
+    "id": 6,
+    "name": "Shifer St 6 Holon",
+    "long": 0,
+    "lat": 0
+  },
+  {
+    "id": 7,
+    "name": "Derech Menachem Begin 23, Tel Aviv-Yafo",
+    "long": 0,
+    "lat": 0
+  },
+  {
+    "id": 8,
+    "name": "Yosef Batsri St 5 Petah Tikva Menachem Begin 132, Tel Aviv-Yafo",
+    "long": 0,
+    "lat": 0
+  },
+  {
+    "id": 9,
+    "name": "Yigal Alon 98, Tel Aviv-Yafo",
+    "long": 0,
+    "lat": 0
   }
 ]

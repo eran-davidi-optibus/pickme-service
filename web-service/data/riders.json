@@ -3,14 +3,42 @@
     "id": 1,
     "name": "Rider 1",
     "start_time": 600,
-    "origin_stop_id": 1,
-    "destination_stop_id": 2
+    "origin_stop_id": "1",
+    "destination_stop_id": "7"
   },
   {
     "id": 2,
     "name": "Rider 2",
-    "end_time": 500,
-    "origin_stop_id": 2,
-    "destination_stop_id": 1
+    "start_time": 500,
+    "origin_stop_id": "2",
+    "destination_stop_id": "8"
+  },
+  {
+    "id": 3,
+    "name": "Rider 3",
+    "start_time": 500,
+    "origin_stop_id": "3",
+    "destination_stop_id": "9"
+  },
+  {
+    "id": 4,
+    "name": "Rider 4",
+    "start_time": 500,
+    "origin_stop_id": "4",
+    "destination_stop_id": "1"
+  },
+  {
+    "id": 5,
+    "name": "Rider 5",
+    "start_time": 500,
+    "origin_stop_id": "5",
+    "destination_stop_id": "2"
+  },
+  {
+    "id": 6,
+    "name": "Rider 6",
+    "start_time": 500,
+    "origin_stop_id": "6",
+    "destination_stop_id": "3"
   }
 ]
